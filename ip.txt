@@ -1,4 +1,2 @@
 # ip_address, [username], [password]
-10.50.0.249, adm_nl, Z@kharku13*
-10.50.0.250, adm_nl, Z@kharku13*
-
+10.104.255.3, nlyubchak-admin, D

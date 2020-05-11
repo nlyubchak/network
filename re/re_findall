@@ -1,0 +1,19 @@
+import re
+result = re.findall(r'10.104', '10.104.255.3 10.104.255.1')
+print (result)
+
+tim = re.findall(r'Tim','Timba Rumba')
+print ('tim = ', tim)
+
+split = re.split(r'm', 'Timba Rumba', maxsplit=1)
+print ('split =', split)
+
+pattern = re.compile('AV')
+result3 = pattern.findall('AV Analytics Vidhya AV')
+print ('result3', result3)
+result2 = pattern.findall('AV is largest analytics community of India')
+print ('result2', result2)
+
+# re.sub - replace
+result4 = re.sub(r'India', 'the Russia', 'AV is largest Analytics community of India')
+print ('result4 =', result4)

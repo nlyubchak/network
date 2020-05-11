@@ -23,7 +23,7 @@ class bcolors:
 global_username = input("Enter Username: ")
 global_password = getpass()
 
-net_connect = ConnectHandler(device_type='cisco_ios',ip='10.50.0.249',username=global_username,password=global_password)
+net_connect = ConnectHandler(device_type='cisco_ios',ip='10.104.255.3',username=global_username,password=global_password)
 net_connect.find_prompt()
 output = net_connect.send_command("show ip int brief")
 print(output)
