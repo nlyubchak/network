@@ -1,2 +1,2 @@
 # ip_address, [username], [password]
-10.104.255.3, nlyubchak-admin, D
+10.104.255.3, ,
