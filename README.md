@@ -1,2 +1,0 @@
-# network
-Network management scripts
