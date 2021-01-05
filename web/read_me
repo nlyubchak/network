@@ -1,0 +1,56 @@
+PAN-EDL stack management guidelines
+Deployment instructions
+Host Requirements
+OS: Linux, MacOS, Windows (with WSL)
+
+python3
+
+gnupg
+
+jq
+
+zip
+
+Procedure
+git clone this repo to your workstation
+Decrypt credentials file using GnuPG (See this web page for guidelines):
+obtain private/public keys & passphrase from shared
+decrypt the file with gpg -d resources/credentials.json.gpg > resources/credentials.json, enter passphrase when prompted.
+(optional) adjust resources data as needed:
+environment name in resources/env-name.txt
+aws region name in resources/region-name.txt
+stack name in resources/stack-name.txt
+s3 bucket policy in aws-s3-bucket-policy-template.json
+credentials & env variables in credentials.json (remember to re-encrypt the file with GPG)
+tags.json
+etc
+run install.sh and wait for the deployment to complete
+review logs/install.log if any issues occured during the process, resolve issues and re-run install.sh as needed
+use contents of outputs/s3-bucket-fqdn.txt file to create/modify DNS CNAME record for S3 bucket web-access
+adjust EDL objects (URLs) in PAN panorama as needed
+CF stack update instructions
+If you would like to modify existing deployment (add/remove resources etc):
+
+modify resources as needed (refer to previous section for details)
+execute install.sh
+Source code update instructions
+If the stack has been already deployed and you would like just to update the code for the existing lambda functions:
+
+run bin/update-code.sh
+App invocation instructions
+Invokes all deployed functions from CF template stack.
+
+run bin/invoke.sh
+Check S3 outputs folder for invocation results.
+
+Undeployment instructions
+Warning: This will destroy & delete:
+
+CF stack
+all cloudwatch logs
+all S3 buckets created during the deployment
+all temp & output files in the project folder
+To proceed:
+
+run bin/destroy-stack.sh
+review logs/destroy-stack.log as needed
